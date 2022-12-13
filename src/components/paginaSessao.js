@@ -1,14 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Principal, AssentosSessao, Status, Dados, Div, Button, Verde, Cinza, Amarelo, CinzaEscolha, Escolhido } from "../assets/css/style";
+import { Principal, AssentosSessao, Status, Dados, Div, Button, Verde, Cinza, Amarelo, CinzaEscolha, Escolhido, EscolhidoClick } from "../assets/css/style";
 import Botao from "./botao";
 
 
 export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome, setCpf, setFilmeNome, setDiaDeFilme, setHorario}){
     const [seats, setSeats] = useState([])
-    const [disable, setDisable] = useState("")
-    const [selecionado, setSelecionado] = useState("")
 
 
     const postURL = 'https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many'
@@ -83,12 +81,15 @@ export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome
 }
 
 function Assentos(props){
-    if(props.isAvailable){
+
+    if(props.avaiable == true){
         return( 
-            <button onclick={() => {
-                props.setAssentos(props.assentos += props.numero)
-                console.log("clicado")
-            }}>{props.numero}</button>
+            <CinzaEscolha onclick={() => {
+                // props.setAssentos([...props.assentos, props.numero])
+                // console.log(props.numero)
+                // setSelecionado(<EscolhidoClick>{props.numero}</EscolhidoClick>)
+                console.log("a")
+            }}>{props.numero}</CinzaEscolha>
         )
     }
     return(

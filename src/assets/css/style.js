@@ -170,6 +170,10 @@ export const Escolhido = styled.button`
     background-color: #FBE192;
     border: 1px solid #F7C52B;
 `
+export const EscolhidoClick = styled.button`
+    background-color: #1AAE9E;
+    border: 1px solid #0E7D71;
+`
 
 export const Status = styled.div`
     display: flex;
