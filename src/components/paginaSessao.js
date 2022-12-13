@@ -64,7 +64,7 @@ export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome
                 <Link to={'/sucesso'} onclick={() => {
                     let dados = 
                     {
-                        ids: Assentos,
+                        ids: assentos,
                         name: nome,
                         cpf: cpf
                     };
@@ -84,11 +84,9 @@ function Assentos(props){
 
     if(props.avaiable == true){
         return( 
-            <CinzaEscolha onclick={() => {
-                // props.setAssentos([...props.assentos, props.numero])
-                // console.log(props.numero)
-                // setSelecionado(<EscolhidoClick>{props.numero}</EscolhidoClick>)
-                console.log("a")
+            <CinzaEscolha onClick={() => {
+                props.setAssentos([...props.assentos, props.numero])
+                console.log(props.numero)
             }}>{props.numero}</CinzaEscolha>
         )
     }
