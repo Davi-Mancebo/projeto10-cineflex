@@ -5,6 +5,7 @@ import Botao from "./botao";
 import { Link } from "react-router-dom";
 
 export default function Concluido({assentos, nome, cpf, filmeNome, horario, diaDeFilme}){
+        console.log(assentos)
         return(
             <Div>
                 <Principal2>

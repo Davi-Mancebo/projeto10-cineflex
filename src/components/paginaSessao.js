@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Principal, AssentosSessao, Status, Dados, Div, Button, Verde, Cinza, Amarelo, CinzaEscolha, Escolhido, EscolhidoClick } from "../assets/css/style";
 import Botao from "./botao";
 
 
 export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome, setCpf, setFilmeNome, setDiaDeFilme, setHorario}){
     const [seats, setSeats] = useState([])
+
+    const [numeros, setnumeros] = useState([])
 
 
     const postURL = 'https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many'
@@ -21,13 +23,13 @@ export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome
         })
         .catch(err => console.log(err.response.data))
     }, [])
-
+    const navigate = useNavigate()
     return(
         <Div>
             <Principal><div><p>{`Selecione o(s) assento(s)`}</p></div></Principal>
             
             <AssentosSessao>
-                {seats.map(s => <Assentos numero={s.name} avaiable = {s.isAvailable} setAssentos = {setAssentos} assentos = {assentos} />)}
+                {seats.map(s => <Assentos numero={s.name} avaiable = {s.isAvailable} setAssentos = {setnumeros} assentos = {numeros} />)}
             </AssentosSessao>
            
             <Status>
@@ -61,19 +63,22 @@ export default function Sessao({idDia, assentos, setAssentos, nome, cpf, setNome
                     value={cpf}
                     onChange={e => setCpf(e.target.value)}
                 />
-                <Link to={'/sucesso'} onclick={() => {
+                <div onClick={() => {
                     let dados = 
                     {
-                        ids: assentos,
+                        ids: numeros,
                         name: nome,
                         cpf: cpf
                     };
-
                     let promise = axios.post(postURL, dados)
-                    promise.then(console.log("enviados com sucesso"));
+                    promise.then((crr) => {
+                        console.log("enviados com sucesso")
+                        navigate('/sucesso')
+                    });
+                    promise.catch(err => console.log(err.data.response))
                 }}>
                     <Botao text = {'Reservar assento(s)'}/>
-                </Link>
+                </div>
             </Dados>
         </Div>
     )
@@ -86,7 +91,7 @@ function Assentos(props){
         return( 
             <CinzaEscolha onClick={() => {
                 props.setAssentos([...props.assentos, props.numero])
-                console.log(props.numero)
+                console.log(props.assentos)
             }}>{props.numero}</CinzaEscolha>
         )
     }

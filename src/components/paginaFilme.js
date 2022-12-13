@@ -47,7 +47,8 @@ function Days(props){
                     <button onClick={() => {
                         props.setIdDia(props.id2)
                         console.log(props.id2)
-                    }}>
+                    }
+                    }>
                         {props.horarios[1].name}
                     </button>
                 </Link>
