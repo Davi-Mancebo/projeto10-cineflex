@@ -1,16 +1,17 @@
 import React from "react";
-import { Principal } from "../assets/css/style";
+import { Div, Principal } from "../assets/css/style";
 import Filmes from "./filmes";
+
 
 export default function PrimeiraPagina({setId}){
 
     return(
-        <div>
+        <Div>
             <Principal>
                 <div><p>Selecione o filme</p></div>
                 <Filmes setId = {setId}/>             
             </Principal>
             
-        </div>
+        </Div>
     )
 }

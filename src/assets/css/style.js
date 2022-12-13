@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-
+export const Div = styled.div`
+    padding: 67px  0px;
+`
 export const Header = styled.div`
     position: fixed;
     top: 0;
@@ -23,7 +25,7 @@ export const Principal = styled.div`
     align-items: center;
     justify-content: center;
     align-items: center;
-    margin-top: 67px;
+    flex-direction: column;
 
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
@@ -39,6 +41,29 @@ export const Principal = styled.div`
         height: 110px;
     }
 `
+
+export const Principal2 = styled(Principal)`
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #293845;
+
+    flex-direction: column;
+
+    color: #247A6B;
+    div, p{
+        flex-direction: column;
+    }
+    p{
+        height: 35px;
+    }
+`
+
 export const Conteudo = styled.div`
 
     display: flex;
@@ -78,9 +103,6 @@ export const Base = styled.div`
     img{
         width: 48px;
         height: 78px;
-    }
-    h1{
-
     }
 `
 
@@ -135,45 +157,73 @@ export const AssentosSessao = styled.div`
         line-height: 100%;
         letter-spacing: 4%;
 
-        background-color: #C3CFD9;
-
-        border: 1px solid #808F9D;
         border-radius: 12px;
         width: 26px;
         height: 26px;
     }
 `
+export const CinzaEscolha =  styled.button`
+    background-color: #C3CFD9;
+    border: 1px solid #808F9D;
+`
+export const Escolhido = styled.button`
+    background-color: #FBE192;
+    border: 1px solid #F7C52B;
+`
+
 export const Status = styled.div`
     display: flex;
 
+    margin-bottom: 41px;
+    justify-content: space-around;
     div{
         display: flex;
         flex-direction: column;
 
-        width: 100%;
-
         align-items: center;
         justify-content: center;
         align-items: center;
-        justify-content: space-around;
-    }
-    div>div{
-        background-color: red;
 
-        border: 1px solid darkred;
-        border-radius: 12px;
-        width: 26px;
-        height: 26px;
-
-        margin-bottom: 5px;
+        
     }
+
     p{
         font-family: 'Roboto', sans-serif;
         color: #4E5A65;
         font-size: 13px;
     }
 `
-export const dados = styled.div`
+export const Verde = styled.div`
+    background-color: #0E7D71;
+
+    border: 1px solid #1AAE9E;
+    border-radius: 12px;
+    width: 26px;
+    height: 26px;
+
+    margin-bottom: 5px;
+`
+export const Cinza = styled.div`
+    background-color: #C3CFD9;
+
+    border: 1px solid #7B8B99;
+    border-radius: 12px;
+    width: 26px;
+    height: 26px;
+
+    margin-bottom: 5px;
+`
+export const Amarelo = styled.div`
+    background-color: #FBE192;
+
+    border: 1px solid #F7C52B;
+    border-radius: 12px;
+    width: 26px;
+    height: 26px;
+
+    margin-bottom: 5px;
+`
+export const Dados = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -186,7 +236,60 @@ export const dados = styled.div`
 
         width: 90%;
         height: 51px;
+        margin-bottom: 32px;
 
-        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+    }
+    input::placeholder{
+        color: #afafaf;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+    }
+    h1{
+        color: #293845;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+`
+export const Button = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+
+    width: 225px;
+    height: 42px;
+
+    background-color: #E8833A;
+
+    border-radius: 3px;
+    border: 0px;
+
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+`
+
+export const DadosConc = styled.div`
+    margin-left: 28px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+
+    h1{
+        font-weight: 700;
+        font-size: 24px;
+
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
+    h2{
+        margin-right: 1px;
     }
 `
